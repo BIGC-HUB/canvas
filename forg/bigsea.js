@@ -683,4 +683,4 @@ Sea(document).on('animationend', function (event) {
 
 // 其它
 // window.eval = undefined
-// window.$ = window.jQuery ? $ : Sea;
+window.$ = window.jQuery ? $ : Sea;

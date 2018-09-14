@@ -32,3 +32,8 @@ body {
 .forg .strawberry + .strawberry {
     margin-left: 40px;
 }
+
+#canvas {
+    background: hotpink;
+    border-radius: 12px;
+}
