@@ -37,6 +37,16 @@ body {
     transform: scale(1);
   }
 }
+@keyframes animate-mua {
+    0% {
+        transform: scale(0.8);
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: scale(2.0);
+    }
+}
 
 .tip {
     display: flex;
@@ -61,6 +71,7 @@ body {
 .emoji .one {
     position: relative;
     width: 100px;
+    height: 100px;
 }
 .emoji img, .emoji svg {
     width: 100px;
@@ -104,7 +115,7 @@ body {
 #heart .left, #heart .right {
     width: 43.5px;
 }
-#heart .hearts {
+#heart .animate-hearts {
     animation: animate-hearts 500ms linear 0s infinite alternate;
 }
 
@@ -140,3 +151,25 @@ body {
 }
 
 /* 木木哒 */
+#mua .mua {
+    position: absolute;
+    bottom: 15px;
+    right: 5px;
+    width: 33.75px;
+    opacity: 0;
+}
+#mua .animate-mua {
+    animation: animate-mua 1s linear 0s forwards;
+}
+
+/* 变脸 */
+#who {
+    
+}
+#who img {
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+}

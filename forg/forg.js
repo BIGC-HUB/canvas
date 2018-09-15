@@ -37,10 +37,10 @@ const bindCute = function() {
 }
 const bindHeart = function() {
     Sea('#heart').on('mouseover', function () {
-        Sea(this).find('.left, .right').addClass('hearts')
+        Sea(this).find('.left, .right').addClass('animate-hearts')
     })
     Sea('#heart').on('mouseout', function () {
-        Sea(this).find('.left, .right').removeClass('hearts')
+        Sea(this).find('.left, .right').removeClass('animate-hearts')
     })
 }
 const bindSmile = function() {
@@ -67,12 +67,42 @@ const bindNose = function() {
         Sea(this).find('.nose').removeClass('animate-nose')
     })
 }
+const bindMua = function() {
+    Sea('#mua').on('mouseover', function () {
+        Sea(this).find('.mua').addClass('animate-mua')
+    })
+    Sea('#mua').on('mouseout', function () {
+        Sea(this).find('.mua').removeClass('animate-mua')
+    })
+}
+const bindWho = function() {
+    let arr = Sea('#who img').arr
+    let index = window.localStorage.who || parseInt(Math.random() * (arr.length - 0) + 0)
+    Sea(arr[index]).css('visibility', 'visible')
+    Sea('#who').on('mouseover', function () {
+        Sea(arr[index]).css('visibility', '')
+        while (true) {
+            let i = parseInt(Math.random() * (arr.length - 0) + 0)
+            if (i !== index) {
+                index = i
+                window.localStorage.who = i
+                break
+            }
+        }
+        Sea(arr[index]).css('visibility', 'visible')
+    })
+    // Sea('#who').on('mouseout', function () {
+    //     log(2)
+    // })
+}
 const main = function(params) {
     bindCute()
     bindHeart()
     bindSmile()
     bindSweat()
     bindNose()
+    bindMua()
+    bindWho()
     // html2canvas(Sea('.strawberry.eye1').dom).then(function (canvas) {
     //     document.body.appendChild(canvas)
     // })
