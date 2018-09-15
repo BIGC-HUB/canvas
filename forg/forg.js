@@ -35,10 +35,29 @@ const bindCute = function() {
         cute.find(".dot2").offset(initOffset(eye2, css2, 4))
     })
 }
+const bindHeart = function() {
+    Sea('#heart').on('mouseover', function () {
+        Sea(this).find('.left, .right').addClass('hearts')
+    })
+    Sea('#heart').on('mouseout', function () {
+        Sea(this).find('.left, .right').removeClass('hearts')
+    })
+}
+const bindSmile = function() {
+    Sea('#smile').on('mouseover', function () {
+        Sea(this).find('img').addClass('animate-spin')
+    })
+    Sea('#smile').on('mouseout', function () {
+        Sea(this).find('img').removeClass('animate-spin')
+    })
+}
 const main = function(params) {
     bindCute()
+    bindHeart()
+    bindSmile()
     // html2canvas(Sea('.strawberry.eye1').dom).then(function (canvas) {
     //     document.body.appendChild(canvas)
     // })
+
 }
 main()
