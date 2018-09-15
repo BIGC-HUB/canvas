@@ -11,33 +11,40 @@ body {
 }
 @keyframes animate-spin {
      0% {
-         -webkit-transform-origin: 50% 50%;
          transform-origin: 50% 50%;
-         -webkit-transform: rotate(0deg);
          transform: rotate(0deg);
      }
      100% {
-         -webkit-transform-origin: 50% 50%;
          transform-origin: 50% 50%;
-         -webkit-transform: rotate(360deg);
          transform: rotate(360deg);
+     }
+}
+@keyframes animate-nose {
+     0% {
+         width: 10px;
+     }
+     100% {
+         width: 51.5px;
      }
 }
 
 .emoji {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.emoji .box {
+    width: 20%;
+    margin-bottom: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .emoji .one {
     position: relative;
+    width: 100px;
 }
 .emoji img, .emoji svg {
     width: 100px;
@@ -91,3 +98,38 @@ body {
 }
 
 /* 4流汗 */
+@keyframes animate-sweat {
+  0% {
+    top: 5px;
+    transform: scale(0.4);
+  }
+  100% {
+    top: 45%;
+    transform: scale(1);
+  }
+}
+#sweat .sweat {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 20.25px;
+}
+#sweat .animate-sweat {
+    animation: animate-sweat 1.8s linear 0s forwards;
+}
+
+/* 鼻子 */
+
+#nose .nose {
+    position: absolute;
+    top: 50px;
+    right: 47px;
+    width: 0;
+    background: #e29e53;
+    height: 14px;
+    border-radius: 10px 8px 6px;
+    transform: rotate(-2deg);
+}
+#nose .animate-nose {
+    animation: animate-nose 1.8s linear 0s forwards;
+}

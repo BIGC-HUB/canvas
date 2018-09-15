@@ -51,10 +51,28 @@ const bindSmile = function() {
         Sea(this).find('img').removeClass('animate-spin')
     })
 }
+const bindSweat = function() {
+    Sea('#sweat').on('mouseover', function () {
+        Sea(this).find('.sweat').addClass('animate-sweat')
+    })
+    Sea('#sweat').on('mouseout', function () {
+        Sea(this).find('.sweat').removeClass('animate-sweat')
+    })
+}
+const bindNose = function() {
+    Sea('#nose').on('mouseover', function () {
+        Sea(this).find('.nose').addClass('animate-nose')
+    })
+    Sea('#nose').on('mouseout', function () {
+        Sea(this).find('.nose').removeClass('animate-nose')
+    })
+}
 const main = function(params) {
     bindCute()
     bindHeart()
     bindSmile()
+    bindSweat()
+    bindNose()
     // html2canvas(Sea('.strawberry.eye1').dom).then(function (canvas) {
     //     document.body.appendChild(canvas)
     // })
