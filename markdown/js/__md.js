@@ -1,13 +1,3 @@
-// 构建 弹窗复选框
-md.init = function() {
-    Sea.innerHTML = `<label style="display:none;">
-            <input class="self" type="checkbox">
-            <text>仅自己可见</text>
-        </label>`.html()
-    Sea('sea.confirm .cont').append(Sea.innerHTML)
-}
-md.init()
-
 Sea('#toc .btn').hide()
 window.md = new Remarkable({
     linkTarget: '_blank',
@@ -185,6 +175,15 @@ Sea('#toc .btn-edit').on('click', function() {
         save.fadeIn()
     }
 })
+Sea('#toc .btn-save').on('click', function () {
+    // Save
+    Sea.confirm('确认保存 当前修改', function (ok) {
+        if (ok) {
+            Sea('#toc .btn-edit').click()
+            Sea.localStorage('txt', md.arr)
+        }
+    })
+})
 Sea('#toc .btn-high').on('click', function() {
     let e = Sea(this).find('i')
     if (md.highON) {
@@ -284,8 +283,12 @@ Sea('#txt').on('input', function(){
     md.view.innerHTML = md.render(this.value)
 })
 
-md.title = '离线笔记'
-md.arr =  ['# 新建笔记\n点击右上角 <i class="fa fa-list-ul"></i> 开启编辑']
+md.title = '🐸青蛙老师的离线记事本'
+md.arr = Sea.localStorage('txt')
+if (md.arr && md.arr.length > 1) {
+} else {
+    md.arr = ['# Forg\n点击右上角 <i class="fa fa-list-ul"></i> 开启编辑']
+}
 Sea('#toc .btn-edit').show('inline-block')
 md.initTOC()
 md.initHtml()
@@ -309,5 +312,5 @@ window.onbeforeunload = function(e) {
 
 // 自动备份
 setInterval(function() {
-    log('自动备份')
+    Sea.localStorage('txt', md.arr)
 }, 6000)
