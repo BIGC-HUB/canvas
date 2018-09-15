@@ -1,15 +1,20 @@
-const domForg = function() {
-    let dot1 = Sea(".forg .eye1 .dot1")
+const bindCute = function() {
+    let cute = Sea('#cute')
+    let dot1 = cute.find(".dot1")
     let css1 = {
         top: Number(dot1.css('top').slice(0, -2)),
         left: Number(dot1.css('left').slice(0, -2)),
     }
-    let dot2 = Sea(".forg .eye2 .dot2")
+    let dot2 = cute.find(".dot2")
     let css2 = {
         top: Number(dot2.css('top').slice(0, -2)),
         left: Number(dot2.css('left').slice(0, -2)),
     }
+    
     const initOffset = function (eye, css, radius) {
+        // postion relative
+        eye.left = eye.left + cute.dom.offsetLeft
+        eye.top = eye.top + cute.dom.offsetTop
         let x = eye.left + css.left
         let y = eye.top + css.top
         let n = event.clientX - x
@@ -23,15 +28,15 @@ const domForg = function() {
     }
     Sea(window).on('mousemove', function (event) {
         // 眼睛 1
-        let eye1 = Sea(".forg .eye1").offset()
-        Sea(".forg .eye1 .dot1").offset(initOffset(eye1, css1, 20))
+        let eye1 = cute.find(".left").offset()
+        cute.find(".dot1").offset(initOffset(eye1, css1, 4))
         // 眼睛 2
-        let eye2 = Sea(".forg .eye2").offset()
-        Sea(".forg .eye2 .dot2").offset(initOffset(eye2, css2, 20))
+        let eye2 = cute.find(".right").offset()
+        cute.find(".dot2").offset(initOffset(eye2, css2, 4))
     })
 }
 const main = function(params) {
-    domForg()
+    bindCute()
     // html2canvas(Sea('.strawberry.eye1').dom).then(function (canvas) {
     //     document.body.appendChild(canvas)
     // })

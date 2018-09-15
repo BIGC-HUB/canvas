@@ -1,39 +1,51 @@
 body {
     margin: 0;
 }
-.forg {
+
+#cute {
+    position: relative;
+}
+#cute .left {
+    position: absolute;
+    top: 33.3px;
+    left: 19.4px;
+}
+#cute .right {
+    position: absolute;
+    top: 33.3px;
+    left: 54px;
+}
+
+#cute .eye {
+    position: relative;
+    width: 27px;
+    height: 27px;
+    background: #eee;
+    border-radius: 50%;
+}
+#cute .eye .dot {
+    position: absolute;
+    top: 6.75px;
+    left: 6.75px;
+    width: 13.5px;
+    height: 13.5px;
+    border-radius: 50%;
+    background: rgb(102, 77, 38);
+}
+
+.emoji {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 100%;
 }
-.forg .strawberry {
-    position: relative;
+.emoji svg {
     width: 100px;
     height: 100px;
-    background: pink;
-    border-radius: 50%;
-}
-.forg .dot {
-    position: absolute;
-    top: 40px;
-    left: 40px;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: black;
-}
-.forg .strawberry + .strawberry {
-    margin-left: 40px;
-}
-
-#canvas {
-    background: hotpink;
-    border-radius: 12px;
 }
