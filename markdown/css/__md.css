@@ -1,0 +1,341 @@
+/* 公共 css */
+body {
+    margin: 0;
+    background: #FFF;
+    color: #272727;
+    font-size: 1rem;
+    font-family: SF UI Text,Hiragino Sans GB,Roboto,Segoe UI,Microsoft Yahei,sans-serif;
+    letter-spacing: .01rem;
+    word-break: break-all;
+}
+
+#md, #edit edit, #edit view, #txt {
+    box-sizing: border-box;
+}
+.btn, a {
+    cursor: pointer;
+}
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#edit {
+    display: none;
+}
+#md, #edit {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#txt, #toc .list {
+    -webkit-overflow-scrolling: touch;
+}
+
+#title {
+    text-align: center;
+}
+/* 展示css */
+#md {
+    padding: 0 5% 1rem;
+    overflow-y: auto;
+}
+
+a {
+    color: #76808E;
+    text-decoration: none;
+}
+a:hover {
+    color: #066188;
+    border-bottom: 1px solid rgba(23,81,153,0.72);
+}
+img {
+    height: auto;
+    max-width: 100%;
+    vertical-align: top;
+    border-radius: .25rem;
+}
+code, pre {
+    font-family: Monaco,Menlo,Consolas,"Courier New",Microsoft Yahei,sans-serif;
+    font-size: 1rem;
+}
+code {
+    border-style: none;
+    border-radius: .25rem;
+    padding: .125rem .25rem;
+
+    background: rgba(1, 20, 36, 0.13);
+    color: #1e2931;
+
+    word-break: break-word;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+pre {
+    margin: 1rem auto;
+    border: 1px solid #ddd;
+    border-radius: .25rem;
+    padding: .5rem;
+
+    line-height: 1.666666rem;
+    color: #abb2bf;
+    background: #282c34;
+}
+pre code {
+    padding: 0;
+    color: inherit;
+    background-color: transparent;
+}
+table {
+    border-spacing: 0;
+    border-collapse: separate;
+    border-radius: .25rem;
+    margin-bottom: 1.25rem;
+    width: 100%;
+}
+table thead th {
+    font-weight: normal;
+}
+table td {
+    border-top: 1px solid #D8DDE4;
+}
+table td, table th {
+    padding: .5rem;
+    vertical-align: middle;
+}
+tbody>tr:nth-child(2n+1)>td, tbody>tr:nth-child(2n+1)>th {
+    background-color: rgba(216, 221, 228, 0.3);
+}
+em {
+    color: #999;
+    font-style: normal;
+}
+mark, ins, strong {
+    padding: 0 .125rem;
+}
+mark {
+    padding: .125rem .25rem;
+    border-radius: .25rem;
+    background-color: #077DDD;
+    color: #FFF;
+    border-style: none;
+    word-break: break-word;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+ins {
+    border-bottom: .125rem solid #ff5e5e;
+    text-decoration: none;
+}
+p {
+    margin: 1.5rem 0;
+}
+ul {
+    padding-left: 2.5rem;
+    margin: 0;
+}
+li {
+    padding: 0.3rem 0;
+}
+li p {
+    margin: 0;
+}
+
+/* 编辑css */
+one {
+    display: block;
+    min-height: 3rem;
+    border-radius: .25rem;
+}
+
+#edit {
+    z-index: 2;
+    cursor: zoom-out;
+    /*display: flex;*/
+    align-items: center;
+    justify-content: center;
+    flex-direction: column-reverse;
+
+    background: #666 url(../cdn/img/bg.png);
+}
+#edit view {
+    display: none;
+    overflow-y: auto;
+    padding: .5rem;
+}
+#edit edit, #edit view {
+    cursor: auto;
+    margin: .5rem;
+    overflow: hidden;
+    background: #FFF;
+    box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2), 0 0 0 1px rgba(0,0,0,0.08);
+}
+#edit edit {
+    width: 95%;
+    height: calc(100% - 4rem);
+}
+#txt, #ace {
+    width: 100%;
+    height: 100%;
+}
+#txt {
+    font-family: Monaco,Menlo,Consolas,"Courier New",Microsoft Yahei,monospace;
+    font-size: 1rem;
+    resize: none;
+    outline: 0;
+    border: 0;
+    padding: 0.5rem;
+    background: transparent;
+}
+
+#edit .btn {
+    position: absolute;
+    height: 2rem;
+    color: rgba(0, 0, 0, 0.38);
+    box-sizing: border-box;
+    padding-top: 0.2rem;
+}
+#edit .btn:hover {
+    color: rgba(168, 168, 168, 0.38);
+}
+#edit .btn-add-top {
+    top: 0;
+}
+#edit .btn-add-bottom {
+    bottom: 0;
+}
+
+
+/* TOC */
+#toc {
+    display: none;
+    flex-direction: column;
+    z-index: 1;
+    position: fixed;
+    top: .5rem;
+    right: 1rem;
+    width: 20rem;
+
+    background: #FFF url(../cdn/img/bg.png);
+    border-radius: .25rem;
+    border: 1px solid rgba(0,0,0,.2);
+    box-shadow: 0 2px 7px rgba(0,0,0,.2);
+    font-family: PingFang SC,Hiragino Sans GB,Microsoft Yahei,WenQuanYi Micro Hei,sans-serif;
+}
+#toc .top {
+    min-height: 3rem;
+    border-bottom: .1rem dashed #CFCFCF;
+}
+#toc .btn {
+    display: inline-block;
+    padding: 1rem;
+}
+#toc .btn-save:hover {
+    color: #668099;
+}
+#toc .btn-high {
+    padding-left: 0;
+}
+#toc .list {
+    padding: 1rem;
+    max-height: 70vh;
+    overflow: auto;
+    font-size: .9rem;
+}
+#toc ul {
+    list-style: none outside none;
+}
+#set {
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    margin-right: 1rem;
+    margin-top: 0.7rem;
+    padding: 1rem;
+    color: rgba(102, 128, 153, 0.45);
+}
+#set:hover {
+    color: rgba(44, 62, 80, 0.65);
+}
+
+@media (min-width: 1000px){
+    #md {
+        padding: 0 15% 1rem;
+    }
+    #edit {
+        flex-direction: row;
+    }
+    #edit edit, #edit view {
+        width: 45%;
+        height: 90%;
+    }
+    #edit view {
+        display: block;
+    }
+
+    /* scroll */
+    #edit view::-webkit-scrollbar {
+        width: 0;
+    }
+
+    #txt::-webkit-scrollbar,
+    #toc .list::-webkit-scrollbar,
+    .ace_scrollbar::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    /* 失去焦点 */
+    #txt::-webkit-scrollbar-corner, #txt::-webkit-scrollbar-thumb:window-inactive
+    #toc .list::-webkit-scrollbar-corner, #toc .list::-webkit-scrollbar-thumb:window-inactive, {
+        background: rgba(102,128,153,.1);
+    }
+
+    /* 获得焦点 */
+    #txt::-webkit-scrollbar-thumb,
+    #toc .list::-webkit-scrollbar-thumb,
+    .ace_scrollbar::-webkit-scrollbar-thumb {
+        background: rgba(102,128,153,.3);
+        border-radius: 4px;
+    }
+
+    #txt::-webkit-scrollbar-track,
+    #toc .list::-webkit-scrollbar-track,
+    .ace_scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+    }
+}
+
+/* 全局 */
+html {
+    font-size: 16px;
+}
+@media screen and (min-width: 375px) {
+    html {
+        font-size: calc(100% + .5 * (100vw - 375px) / 39);
+        font-size: calc(16px + .5 * (100vw - 375px) / 39);
+    }
+}
+@media screen and (min-width: 414px) {
+    html {
+        font-size: calc(16.5px   + .5 * (100vw - 414px) / 186);
+        font-size: calc(103.125% + .5 * (100vw - 414px) / 186);
+    }
+}
+@media screen and (min-width: 600px) {
+    html {
+        font-size: calc(106.25% + .5 * (100vw - 600px) / 400);
+        font-size: calc(17px    + .5 * (100vw - 600px) / 400);
+    }
+}
+@media screen and (min-width: 1000px) {
+    html {
+        font-size: calc(109.375% + .5 * (100vw - 1000px) / 1000);
+        font-size: calc(17.5px + .5 * (100vw - 1000px) / 1000);
+    }
+}

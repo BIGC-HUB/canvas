@@ -1,0 +1,40 @@
+.ace_editor {
+    font-family: Monaco,Menlo,Consolas,"Courier New",Microsoft Yahei,monospace !important;
+    font-size: 1rem !important;
+}
+/* 背景 */
+.ace-tomorrow-night {
+    background-color: #282c34 !important;
+    color: #abb2bf !important;
+}
+.ace-tomorrow-night .ace_gutter {
+    background-color: #282c34 !important;
+    color: #5c6370 !important;
+}
+/* 当前选中背景 */
+.ace-tomorrow-night .ace_marker-layer .ace_active-line {
+    background-color: #394150 !important;
+}
+.ace-tomorrow-night .ace_gutter-active-line {
+    background-color: #394150 !important;
+}
+.ace-tomorrow-night .ace_marker-layer .ace_selection {
+    background-color: rgba(0, 0, 0, 0.3) !important;
+}
+/* 注释 */
+.ace-tomorrow-night .ace_comment {
+    color: #5c6370 !important;
+}
+/* 字符串 */
+.ace-tomorrow-night .ace_string {
+    color: #98c379 !important;
+}
+/* 链接 */
+.ace_underline {
+    color: #5c6370 !important;
+    text-decoration: underline !important;
+}
+/* hljs */
+.hljs-comment, .hljs-quote {
+     font-style: normal !important;
+}
