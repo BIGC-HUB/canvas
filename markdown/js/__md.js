@@ -130,6 +130,23 @@ md.btnAdd = function(s) {
     // 锚点
     location.replace('#' + String(md.id + n))
 }
+md.init = function() {
+    md.title = '🐸青蛙老师的离线记事本'
+    let arr = Sea.localStorage('txt') || []
+    if (arr.length === 0) {
+        md.arr = ['# Forg\n点击右上角 <i class="fa fa-list-ul"></i> 开启编辑']
+    } else {
+        md.arr = arr
+    }
+    Sea('#toc .btn-edit').show('inline-block')
+}
+md.initHash = function() {
+    // 锚点
+    let hash = window.location.hash
+    if (hash) {
+        location.replace(hash)
+    }
+}
 Sea('#set').on('click', function() {
     if (md.tocON) {
         md.tocON = false
@@ -283,23 +300,11 @@ Sea('#txt').on('input', function(){
     md.view.innerHTML = md.render(this.value)
 })
 
-md.title = '🐸青蛙老师的离线记事本'
-md.arr = Sea.localStorage('txt')
-if (md.arr && md.arr.length > 1) {
-} else {
-    md.arr = ['# Forg\n点击右上角 <i class="fa fa-list-ul"></i> 开启编辑']
-}
-Sea('#toc .btn-edit').show('inline-block')
+
+md.init()
 md.initTOC()
 md.initHtml()
-// 锚点
-let hash = window.location.hash
-if (hash) {
-    location.replace(hash)
-}
-
-
-
+md.initHash()
 // 关闭提示
 window.onbeforeunload = function(e) {
     if (md.editON) {
