@@ -27,16 +27,32 @@ body {
          width: 51.5px;
      }
 }
+@keyframes animate-sweat {
+  0% {
+    top: 5px;
+    transform: scale(0.4);
+  }
+  100% {
+    top: 45%;
+    transform: scale(1);
+  }
+}
+
+.tip {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    color: pink;
+}
 
 .emoji {
-    margin-top: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
 }
 .emoji .box {
-    width: 20%;
     margin-bottom: 40px;
     display: flex;
     justify-content: center;
@@ -98,16 +114,6 @@ body {
 }
 
 /* 4流汗 */
-@keyframes animate-sweat {
-  0% {
-    top: 5px;
-    transform: scale(0.4);
-  }
-  100% {
-    top: 45%;
-    transform: scale(1);
-  }
-}
 #sweat .sweat {
     position: absolute;
     top: 5px;
@@ -119,7 +125,6 @@ body {
 }
 
 /* 鼻子 */
-
 #nose .nose {
     position: absolute;
     top: 50px;
@@ -133,3 +138,5 @@ body {
 #nose .animate-nose {
     animation: animate-nose 1.8s linear 0s forwards;
 }
+
+/* 木木哒 */
