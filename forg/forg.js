@@ -77,7 +77,7 @@ const bindMua = function() {
 }
 const bindWho = function() {
     let arr = Sea('#who img').arr
-    let index = window.localStorage.who || parseInt(Math.random() * (arr.length - 0) + 0)
+    let index = Sea.localStorage('who') || parseInt(Math.random() * (arr.length - 0) + 0)
     Sea(arr[index]).css('visibility', 'visible')
     Sea('#who').on('mouseover', function () {
         Sea(arr[index]).css('visibility', '')
@@ -85,7 +85,7 @@ const bindWho = function() {
             let i = parseInt(Math.random() * (arr.length - 0) + 0)
             if (i !== index) {
                 index = i
-                window.localStorage.who = i
+                Sea.localStorage('who', i)
                 break
             }
         }
